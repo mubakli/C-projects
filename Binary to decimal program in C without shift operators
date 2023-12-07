@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<math.h>
+
+int main(void){
+    unsigned long long girdi,payda,z,basdeg,binary,basamak;
+    basamak=0;
+    binary=0;
+    printf("***********BİNARY TO DECİMAL PROGRAM***********\n\n\n");
+    printf("Binary sayi giriniz: ");
+    scanf("%llu",&girdi);
+    z=girdi;
+    basdeg=girdi;
+    while(z>0){
+        z=z/10;
+        basamak++;
+
+    }
+
+ basamak= basamak-1;
+while(basamak>0){
+    payda= pow(10,basamak);
+    binary=binary+pow(2,basamak)*(basdeg/payda);
+    if(pow(10,basamak)<=basdeg)
+    basdeg=basdeg-pow(10,basamak);
+    basamak--;
+
+    }
+if(girdi%10==1)
+binary=binary+1;
+if(girdi>11111111111111111111)
+    printf("20 basamaktan fazla giremezsiniz!!!");
+else 
+printf("girdiginiz degerin decimal karsılıgı: %llu",binary);
+
+    return (0);
+}
